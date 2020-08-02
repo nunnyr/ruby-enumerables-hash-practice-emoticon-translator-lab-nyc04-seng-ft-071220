@@ -2,26 +2,30 @@
 require "yaml"
 require "pry"
 
-def load_library(file)
+def load_library(file_path)
   # code goes here
 
-  emoticons = YAML.load_file(file)
-  new_hash = {}
+  emoticons = YAML.load_file(file_path)
+  #when you run emoticons you see the YAML file and you see the different language versions in an array
+  translation_hash = {}
+
+  #I am getting a hash of keys that point to arrays of strings
+  #I need to get a nested hash 
   
-  emoticons.each do |name_of_emoji, language|
+  emoticons.each do |emoji_name, translated_items_array|
                       #key:angel     #value -somethingEnglish - something Japanese
-
-  #new_hash[name_of_emoji] = {}
+    binding.pry
+    translation_hash[emoji_name] = {}
  
-  new_hash[name_of_emoji][:english] = language[0]
+    translation_hash[emoji_name]
+    translation_hash[emoji_name][:english] = translated_items_array[0]
   
-  new_hash[name_of_emoji][:japanese] = language[1]
-
-
+    translation_hash[name_of_emoji][:japanese] = translated_items_array[1]
 
   end
-  new_hash
+  translation_hash
 end
+
 
 #I am creating a new hash where each key is the name of the emoticon. aka "angel"
   #the hash I am really iterating over is the emoticons (which are the values)
@@ -42,6 +46,11 @@ end
 #the reason why key is not in symbol notation is because we are pulling it from the each iteration
 def get_japanese_emoticon(file, emoji)
   # code goes here
+
+
+
+
+
   library = load_library(file)
   emoji = library.find do |key|
     library[key][:english] == emoji
