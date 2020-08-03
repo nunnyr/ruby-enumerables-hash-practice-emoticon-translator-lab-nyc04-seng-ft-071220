@@ -3,18 +3,14 @@ require "yaml"
 require "pry"
 
 def load_library(file_path)
-  # code goes here
+
 
   emoticons = YAML.load_file(file_path)
-  #when you run emoticons you see the YAML file and you see the different language versions in an array
+  
   translation_hash = {}
 
-  #I am getting a hash of keys that point to arrays of strings
-  #I need to get a nested hash 
-  
   emoticons.each do |emoji_name, translated_items_array|
-                      #key:angel     #value -somethingEnglish - something Japanese
-    binding.pry
+    
     translation_hash[emoji_name] = {}
  
     translation_hash[emoji_name]
@@ -44,38 +40,35 @@ end
 
 # load_library(file)
 #the reason why key is not in symbol notation is because we are pulling it from the each iteration
-def get_japanese_emoticon(file, emoji)
+def get_japanese_emoticon(file_path, emoticon)
   # code goes here
 
-
-
-
-
-  library = load_library(file)
-  emoji = library.find do |key|
-    library[key][:english] == emoji
-  end 
-  if( emoji != emoji)
-  p "Sorry, that emoticon was not found"
-end
+    library = load_library(file_path)
+    binding.pry
+    #emoji = library.find do |key|
+    #library[key][:english] == emoji
+  
 end
 
-def get_english_meaning(file, emoticon)
-  library = load_library(file)
 
-  #wait scratched that this wants the meaning
-  #this is tricky bc we are trying to find the japanese emoticon bc we are trying to translate that
-  #into japanese name
+get_japanese_emoticon(file_path, emoticon)
 
-  emoji = library.find do |key, value|
-      library[key][:japanese] == emoji
-  #if you cannot find a match we need a statement that says there is no translation
-  #binding.pry
-  #0
-  end
-  if (emoji != emoticon)
-    p "Sorry, that emoticon was not found"
-  # code goes here
-  end
-end
+# def get_english_meaning(file, emoticon)
+#   library = load_library(file)
+
+#   #wait scratched that this wants the meaning
+#   #this is tricky bc we are trying to find the japanese emoticon bc we are trying to translate that
+#   #into japanese name
+
+#   # emoji = library.find do |key, value|
+#   #     library[key][:japanese] == emoji
+#   #if you cannot find a match we need a statement that says there is no translation
+#   #binding.pry
+#   #0
+#   # end
+#   # if (emoji != emoticon)
+#   #   p "Sorry, that emoticon was not found"
+#   # # code goes here
+#   # end
+# end
 
