@@ -2,8 +2,17 @@
 require "yaml"
 require "pry"
 
+<<<<<<< HEAD
 def load_library(file_path)
+<<<<<<< HEAD
 
+=======
+=======
+def load_library(file)
+<<<<<<< HEAD
+>>>>>>> 2f2fc6811670f23d12c8df2adba62052ec991e04
+  # code goes here
+>>>>>>> 037e1cd03b91cdd2480fafc648a93e56f5c4585e
 
   emoticons = YAML.load_file(file_path)
   
@@ -28,6 +37,30 @@ end
   #binding.pry
   #now I have my key which is the name
   #each Key has 2 values: english and my japenese emoticon
+=======
+  emoticons = YAML.load_file("./lib/emoticons.yml")
+  new_hash = {}
+  
+  emoticons.each do |key, value|
+    new_hash[key] = {}
+    
+    new_hash[key][:english] = value[0]
+    new_hash[key][:japanese] = value[1]
+ # binding.pry
+    end
+  new_hash
+end
+  
+  
+  
+  #I am creating a new hash where each key is the name of the emoticon
+  #the hash I am really iterating over is the emoticons
+ 
+  #binding.pry
+  #now I have my key which is the name
+  #each Key has 2 values: english and my japenese emoticon
+    
+>>>>>>> cbb1f926678960f77804f587c9303cc2945487b9
     
     
     #binding.pry
@@ -36,6 +69,11 @@ end
     
     #if i just have it set to value and not value at index 0 then i am putting all of the 
     #values in it. i just want the english one
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cbb1f926678960f77804f587c9303cc2945487b9
     
 
 # load_library(file)
